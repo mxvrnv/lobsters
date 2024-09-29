@@ -546,12 +546,12 @@ onPageLoad(() => {
     Lobster.fetchURLTitle(event.target);
   });
 
-  on('click', 'li.story a.upvoter', (event) => {
+  on('click', 'li.story button.upvoter', (event) => {
     event.preventDefault();
     Lobster.upvoteStory(event.target);
   });
 
-  on('click', 'li.story a.flagger', (event) => {
+  on('click', 'li.story button.flagger', (event) => {
     event.preventDefault();
     const reasons = Lobster.storyFlagReasons;
     Lobster.modalFlaggingDropDown("story", event.target, reasons);
@@ -675,7 +675,7 @@ onPageLoad(() => {
       });
   });
 
-  on('click', '.comment a.flagger', (event) => {
+  on('click', '.comment button.flagger', (event) => {
     event.preventDefault();
     const reasons = Lobster.commentFlagReasons
     Lobster.modalFlaggingDropDown("comment", event.target, reasons);
@@ -689,7 +689,7 @@ onPageLoad(() => {
     Lobster.removeFlagModal()
   });
 
-  on("click", '.comment a.upvoter', (event) => {
+  on("click", '.comment button.upvoter', (event) => {
     event.preventDefault();
     Lobster.upvoteComment(event.target);
   });
@@ -808,4 +808,14 @@ onPageLoad(() => {
       checkbox.checked = event.target.checked;
     }
   });
+
+  on('click', '.archive_button', (event) => {
+    const archiveDropdownEl = event.target.nextElementSibling;
+    console.log(archiveDropdownEl)
+    if (archiveDropdownEl.style.display === 'block') {
+      archiveDropdownEl.style.display = 'none';
+    } else {
+      archiveDropdownEl.style.display = 'block';
+    }
+  })
 });

@@ -661,6 +661,7 @@ div.voters .upvoter {
 	margin-left: 14px;
 	padding: 0;
 	display: block;
+	background-color: transparent;
 }
 
 div.voters .upvoter:hover,
@@ -895,6 +896,12 @@ li.story span.byline {
 	color: var(--color-fg-contrast-4-5);
 	text-decoration: none;
 }
+.byline button {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	color: var(--color-fg-contrast-4-5);
+}
 /* preserve selection made elsewhere when clicking */
 li .byline a.comment_replier {
 	user-select: none;
@@ -1103,18 +1110,9 @@ div.comment_text code {
 	z-index: 1;
 }
 
-/* archive; dropdown styling is with #flag_dropdown to match it */
-.archive_button {
+.archive-dropdown {
 	display: none;
 }
-.archive_button:not(:checked) ~ .archive-dropdown {
-	display: none;
-}
-.archive_button ~ label{
-	cursor: pointer;
-}
-
-
 
 .markdown_help {
 	background-color: var(--color-box-bg-shaded);
@@ -1790,7 +1788,7 @@ input[type="submit"].link_post.pushover_button {
 		margin-top: 0px;
 		width: 30px;
 	}
-	div.voters a.upvoter {
+	div.voters button.upvoter {
 		margin-top: -5px;
 	}
 
@@ -1802,7 +1800,7 @@ input[type="submit"].link_post.pushover_button {
 		margin-left: 35px;
 	}
 
-	div.voters a.upvoter {
+	div.voters button.upvoter {
 		margin-left: 6px;
 		border-width: 9px;
 	}

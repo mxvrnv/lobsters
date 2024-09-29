@@ -23,7 +23,7 @@ class="story <%= story.current_upvoted? ? "upvoted" : "" %>
 <div class="story_liner h-entry">
   <div class="voters">
     <% if @user %>
-      <a class="upvoter" title="Add upvote"></a>
+      <button class="upvoter" title="Add upvote"></button>
     <% else %>
       <%= link_to "", login_path, :class => "upvoter" %>
     <% end %>
@@ -141,7 +141,7 @@ class="story <%= story.current_upvoted? ? "upvoted" : "" %>
           <% elsif @user && @user.can_flag?(story) %>
             <span> | </span>
             <span class="dropdown_parent">
-              <a class="flagger">flag</a>
+              <button class="flagger">flag</button>
             </span>
           <% end %>
           <% if story.is_hidden_by_cur_user %>
@@ -166,8 +166,7 @@ class="story <%= story.current_upvoted? ? "upvoted" : "" %>
         <% if story.url.present? && (!story.is_gone? || @user.try(:is_moderator?))  %>
           <span> | </span>
           <span class="dropdown_parent">
-            <input id="archive_<%= story.short_id %>" class="archive_button" type="checkbox">
-            <label for="archive_<%= story.short_id %>">archive</label>
+            <button class="archive_button">archive</button>
             <div class="archive-dropdown">
               <a href="<%= story.archiveorg_url %>">Archive.org</a>
               <a href="<%= story.archivetoday_url %>">Archive.today</a>
